@@ -8,14 +8,10 @@ from selenium.webdriver.support import expected_conditions as EC
 class Drom:
 
     @pytest.fixture(scope="function", autouse=True)
-    def setup(self):
-        options = Options()
-        options.add_argument("--lang=ru-ru")
-        self.driver = webdriver.Chrome(options=options)
+    def setup(self):       
+        self.driver = webdriver.Chrome
         self.driver.implicitly_wait(10)
         self.driver.maximize_window()
-        yield
-        self.driver.quit()
 
     def set_region(self):
         
