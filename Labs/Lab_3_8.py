@@ -42,37 +42,37 @@ try:
 
     # 4. Заполнить поля Name
     first_name_input = driver.find_element(By.XPATH, "//input[@id='firstName']")
-    first_name_input.send_keys("John")
+    first_name_input.send_keys("Svetlana")
 
     last_name_input = driver.find_element(By.XPATH, "//input[@id='lastName']")
-    last_name_input.send_keys("Doe")
+    last_name_input.send_keys("Nikitenko")
 
     # 5. Заполнить поле Email валидным значением
     email_input = driver.find_element(By.XPATH, "//input[@id='userEmail']")
-    email_input.send_keys("johndoe@example.com")
+    email_input.send_keys("svetlananikitenko@mail.ru")
 
     # 6. Выбрать Gender
-    gender_radio_button = driver.find_element(By.XPATH, "//label[text()='Male']")
+    gender_radio_button = driver.find_element(By.XPATH, "//label[text()='Female']")
     gender_radio_button.click()
 
     # 7. Заполнить поле Mobile валидным значением
     mobile_input = driver.find_element(By.XPATH, "//input[@id='userNumber']")
-    mobile_input.send_keys("1234567890")
+    mobile_input.send_keys("7999000000")
 
     # 8. Заполнить поле Date of Birth
     date_of_birth_input = driver.find_element(By.XPATH, "//input[@id='dateOfBirthInput']")
     date_of_birth_input.click()
     date_of_birth_input.send_keys(Keys.CONTROL + "a")
-    date_of_birth_input.send_keys("01 Jan 1990")
+    date_of_birth_input.send_keys("05 Feb 1984")
     date_of_birth_input.send_keys(Keys.ENTER)
 
     # 9. Выбрать в поле Subject 3 любых значения
     subject_input = driver.find_element(By.XPATH, "//input[@id='subjectsInput']")
-    subject_input.send_keys("Maths")
+    subject_input.send_keys("English")
     subject_input.send_keys(Keys.ENTER)
-    subject_input.send_keys("Physics")
+    subject_input.send_keys("Arts")
     subject_input.send_keys(Keys.ENTER)
-    subject_input.send_keys("Chemistry")
+    subject_input.send_keys("Biology")
     subject_input.send_keys(Keys.ENTER)
 
     # 10. Выбрать Hobbies
@@ -81,7 +81,7 @@ try:
 
     # 11. Заполнить Current Address
     current_address_input = driver.find_element(By.XPATH, "//textarea[@id='currentAddress']")
-    current_address_input.send_keys("123 Main Street, Springfield")
+    current_address_input.send_keys("Omsk, Lenina 1")
 
     # 12. Выбрать State and City
     state_dropdown = driver.find_element(By.XPATH, "//div[@id='state']")
@@ -103,12 +103,12 @@ try:
         EC.visibility_of_element_located((By.XPATH, "//div[@class='modal-content']"))
     )
     modal_text = modal_dialog.text
-    assert "John Doe" in modal_text, "Имя не найдено в результатах."
-    assert "johndoe@example.com" in modal_text, "Email не найден в результатах."
-    assert "1234567890" in modal_text, "Мобильный номер не найден в результатах."
-    assert "Maths, Physics, Chemistry" in modal_text, "Предметы не найдены в результатах."
+    assert "Svetlana Nikitenko" in modal_text, "Имя не найдено в результатах."
+    assert "svetlananikitenko@mail.ru" in modal_text, "Email не найден в результатах."
+    assert "7999000000" in modal_text, "Мобильный номер не найден в результатах."
+    assert "English, Arts, Biology" in modal_text, "Предметы не найдены в результатах."
     assert "Sports" in modal_text, "Хобби не найдено в результатах."
-    assert "123 Main Street, Springfield" in modal_text, "Адрес не найден в результатах."
+    assert "Omsk, Lenina 1" in modal_text, "Адрес не найден в результатах."
     assert "NCR Delhi" in modal_text, "Состояние и город не найдены в результатах."
 
     # 15. Нажать Close
