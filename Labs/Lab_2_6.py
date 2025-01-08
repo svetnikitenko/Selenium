@@ -30,14 +30,14 @@ try:
 
     # 4. Загрузить файл
     # Указываем путь к файлу, который хотим загрузить
-    file_path = os.path.abspath("c:/123/my_file.txt")  # Замените на путь к вашему файлу
+    file_path = os.path.abspath("c:/lab/file.txt")  # Замените на путь к вашему файлу
     upload_input = driver.find_element(By.XPATH, "//input[@id='uploadFile']")
     upload_input.send_keys(file_path)
 
     # 5. Проверить в поле с именем файла его имя
     file_name_field = driver.find_element(By.XPATH, "//input[@id='uploadFile']")
     uploaded_file_name = file_name_field.get_attribute("value")
-    assert uploaded_file_name == "c:/123/my_file.txt", f"Ожидаемое имя файла: 'c:/123/my_file.txt', но найдено: '{uploaded_file_name}'"
+    assert uploaded_file_name == "c:/lab/file.txt", f"Ожидаемое имя файла: 'c:/lab/file.txt', но найдено: '{uploaded_file_name}'"
 
     # 6. Проверить в поле с полным именем директории имя всего пути
     # Проверяем, что в поле действительно полный путь
